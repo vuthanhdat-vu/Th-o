@@ -1,5 +1,6 @@
 import type { LoveShowcaseData, MemoryItem } from '../types/showcase';
 import { DEFAULT_SHOWCASE_DATA } from '../data/defaults';
+import { publicAssetUrl } from './publicAssetUrl';
 
 const DB_NAME = 'TwilightBirthdayShowcaseDB_v2';
 const DB_VERSION = 1;
@@ -66,10 +67,19 @@ function mergeWithDefaults(raw: Partial<LoveShowcaseData> | null | undefined): L
         : defaultRealmMemories['cat-island'],
   };
 
+  // Older saved profiles store default photos as root-relative URLs.
+  for (const realm of Object.keys(mergedRealmMemories) as (keyof typeof mergedRealmMemories)[]) {
+    mergedRealmMemories[realm] = mergedRealmMemories[realm].map((memory) =>
+      memory.imageUrl?.startsWith('/assets/images/')
+        ? { ...memory, imageUrl: publicAssetUrl(memory.imageUrl.slice(1)) }
+        : memory,
+    );
+  }
+
   return {
     ...DEFAULT_SHOWCASE_DATA,
     ...raw,
-    memories: heartMemories,
+    memories: mergedRealmMemories.heart,
     realmMemories: mergedRealmMemories,
     milestones: Array.isArray(raw.milestones)
       ? raw.milestones

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { publicAssetUrl } from '../services/publicAssetUrl';
 
 export interface SunsetEnvironmentRig {
   root: THREE.Group;
@@ -233,10 +234,10 @@ export function createSunsetEnvironment(): SunsetEnvironmentRig {
   // 1.1 High-altitude Celestial Meteor Shower & Blue Comets in upper sky dome
   // Models: meteor-shower-background (14914.jpg) & falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos (4407.jpg)
   const texLoader = new THREE.TextureLoader();
-  const globalMeteorTex = texLoader.load('/models/meteor-shower-background/14914.jpg');
+  const globalMeteorTex = texLoader.load(publicAssetUrl('models/meteor-shower-background/14914.jpg'));
   globalMeteorTex.colorSpace = THREE.SRGBColorSpace;
 
-  const globalCometTex = texLoader.load('/models/falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos/4407.jpg');
+  const globalCometTex = texLoader.load(publicAssetUrl('models/falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos/4407.jpg'));
   globalCometTex.colorSpace = THREE.SRGBColorSpace;
 
   const globalShowerMat = new THREE.ShaderMaterial({

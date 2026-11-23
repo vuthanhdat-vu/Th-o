@@ -1,8 +1,8 @@
 import type { LoveShowcaseData, MemoryItem, ShowcaseRealm } from '../types/showcase';
 
-// Đường dẫn ảnh của chị Thạch Thảo
-const IMG = '/assets/images';
-const img = (name: string) => `${IMG}/${name}`;
+import { publicAssetUrl } from '../services/publicAssetUrl';
+
+const img = (name: string) => publicAssetUrl(`assets/images/${name}`);
 
 export const REALM_MEMORIES: Record<ShowcaseRealm, MemoryItem[]> = {
   heart: [

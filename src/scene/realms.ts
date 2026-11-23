@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { publicAssetUrl } from '../services/publicAssetUrl';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
@@ -628,12 +629,12 @@ export function createShowcaseRealms(
   // CELESTIAL SKY DECORATION: Meteor Shower & Falling Blue Comets
   // Models: meteor-shower-background (14914.jpg) & falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos (4407.jpg)
   // =========================================================================
-  const meteorShowerTex = textureLoader.load('/models/meteor-shower-background/14914.jpg');
+  const meteorShowerTex = textureLoader.load(publicAssetUrl('models/meteor-shower-background/14914.jpg'));
   meteorShowerTex.colorSpace = THREE.SRGBColorSpace;
   meteorShowerTex.anisotropy = maxAnisotropy;
   textures.push(meteorShowerTex);
 
-  const blueCometsTex = textureLoader.load('/models/falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos/4407.jpg');
+  const blueCometsTex = textureLoader.load(publicAssetUrl('models/falling-comets-asteroids-meteors-with-blue-flame-trail-cosmos/4407.jpg'));
   blueCometsTex.colorSpace = THREE.SRGBColorSpace;
   blueCometsTex.anisotropy = maxAnisotropy;
   textures.push(blueCometsTex);
@@ -951,7 +952,7 @@ export function createShowcaseRealms(
 
   // Asynchronously load phoenix_bird.glb and instantiate 5 graceful soaring phoenixes
   gltfLoader.load(
-    '/models/phoenix_bird.glb',
+    publicAssetUrl('models/phoenix_bird.glb'),
     (gltf) => {
       const animClip = gltf.animations && gltf.animations.length > 0 ? gltf.animations[0] : null;
 
@@ -1337,7 +1338,7 @@ export function createShowcaseRealms(
   ];
 
   gltfLoader.load(
-    '/models/coral_bomen_kappen_gezond.glb',
+    publicAssetUrl('models/coral_bomen_kappen_gezond.glb'),
     (gltf) => {
       // Pre-traverse master scene once to enable shadows
       gltf.scene.traverse((child) => {
@@ -1400,7 +1401,7 @@ export function createShowcaseRealms(
   ];
 
   gltfLoader.load(
-    '/models/fan_coral_med.glb',
+    publicAssetUrl('models/fan_coral_med.glb'),
     (gltf) => {
       gltf.scene.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
@@ -1449,7 +1450,7 @@ export function createShowcaseRealms(
   ];
 
   gltfLoader.load(
-    '/models/coral_piece.glb',
+    publicAssetUrl('models/coral_piece.glb'),
     (gltf) => {
       gltf.scene.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
@@ -1496,7 +1497,7 @@ export function createShowcaseRealms(
   ];
 
   gltfLoader.load(
-    '/models/lowpoly_coral_pack.glb',
+    publicAssetUrl('models/lowpoly_coral_pack.glb'),
     (gltf) => {
       gltf.scene.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
@@ -1521,10 +1522,10 @@ export function createShowcaseRealms(
 
   // 5. School of Tropical Reef Fish: Authentic animated-swimming-tropical-fish-school-loop
   const fishDiffuseMaps = [
-    textureLoader.load('/models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_0.png'),
-    textureLoader.load('/models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_5.png'),
-    textureLoader.load('/models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_9.png'),
-    textureLoader.load('/models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_13.png'),
+    textureLoader.load(publicAssetUrl('models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_0.png')),
+    textureLoader.load(publicAssetUrl('models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_5.png')),
+    textureLoader.load(publicAssetUrl('models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_9.png')),
+    textureLoader.load(publicAssetUrl('models/animated-swimming-tropical-fish-school-loop/textures/gltf_embedded_13.png')),
   ];
   fishDiffuseMaps.forEach((tex) => {
     tex.colorSpace = THREE.SRGBColorSpace;
@@ -1540,7 +1541,7 @@ export function createShowcaseRealms(
   ];
 
   gltfLoader.load(
-    '/models/animated-swimming-tropical-fish-school-loop/source/School of fish.glb',
+    publicAssetUrl('models/animated-swimming-tropical-fish-school-loop/source/School of fish.glb'),
     (gltf) => {
       const fishScene = gltf.scene;
       loadedGroups.push(fishScene);
@@ -1801,7 +1802,7 @@ export function createShowcaseRealms(
 
   // 1. Coconut Palm Trees (coconut_palm.glb) loaded onto Cat Island
   gltfLoader.load(
-    '/models/coconut_palm.glb',
+    publicAssetUrl('models/coconut_palm.glb'),
     (gltf) => {
       const palmTemplate = gltf.scene;
       loadedGroups.push(palmTemplate);
@@ -1841,7 +1842,7 @@ export function createShowcaseRealms(
 
   // 2. Natural Coastal Grass and Reeds (grass.glb) loaded onto Cat Island
   gltfLoader.load(
-    '/models/grass.glb',
+    publicAssetUrl('models/grass.glb'),
     (gltf) => {
       const grassTemplate = gltf.scene;
       loadedGroups.push(grassTemplate);
@@ -2037,7 +2038,7 @@ export function createShowcaseRealms(
 
   // 1. Load sitting_blue_cat.glb onto Cat Island (Front-left lawn & Back-left hill)
   gltfLoader.load(
-    '/models/sitting-catbritish-shorthair-blue-cat/source/sitting_blue_cat.glb',
+    publicAssetUrl('models/sitting-catbritish-shorthair-blue-cat/source/sitting_blue_cat.glb'),
     (gltf) => {
       const blueCat = gltf.scene;
       loadedGroups.push(blueCat);
@@ -2081,7 +2082,7 @@ export function createShowcaseRealms(
 
   // 2. Load cat.glb onto Cat Island (Front-center lawn, Far-left flank, Far-right flank)
   gltfLoader.load(
-    '/models/cat.glb',
+    publicAssetUrl('models/cat.glb'),
     (gltf) => {
       const modelCat = gltf.scene;
       loadedGroups.push(modelCat);
@@ -2143,7 +2144,7 @@ export function createShowcaseRealms(
 
   // 3. Load blissa_cat.glb onto Cat Island (Front-right lawn, Back crest center, Back right slope)
   gltfLoader.load(
-    '/models/blissa_cat.glb',
+    publicAssetUrl('models/blissa_cat.glb'),
     (gltf) => {
       const blissa = gltf.scene;
       loadedGroups.push(blissa);

@@ -1,3 +1,4 @@
+import { publicAssetUrl } from '../services/publicAssetUrl';
 import { calculateDaysTogether, formatVietnameseDate } from '../data/defaults';
 
 interface LoveLetterModalProps {
@@ -45,7 +46,7 @@ export function LoveLetterModal({
         className="relative max-h-[90vh] w-full max-w-[520px] sm:max-w-[560px] rounded-2xl shadow-[0_28px_75px_rgba(15,4,25,0.75),0_10px_25px_rgba(15,4,25,0.45)] border border-[#FFD0E2]/50 overflow-hidden flex flex-col"
         style={{
           aspectRatio: '1131 / 1600',
-          backgroundImage: 'url(/assets/love_letter_paper_clean.webp)',
+          backgroundImage: `url(${publicAssetUrl('assets/love_letter_paper_clean.webp')})`,
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
           backgroundColor: '#FCF6F1',
