@@ -1,0 +1,6 @@
+{
+  "name": "Hoàng Hôn Của Đôi Mình",
+  "description": "Không gian trưng bày trái tim 3D tương tác, khung ảnh kỷ niệm và những lời nhắn yêu thương ngọt ngào trong ánh hoàng hôn hồng tím.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
