@@ -15,12 +15,12 @@ interface LoveLetterModalProps {
 
 export function LoveLetterModal({
   open,
-  partnerA,
   partnerB,
   startDate,
-  letterHeader = 'My love',
+  letterHeader = 'Happy Birthday',
   letterTitle,
   letterBody,
+  letterSignature,
   letterFontSize = 15,
   onClose,
 }: LoveLetterModalProps) {
@@ -40,7 +40,7 @@ export function LoveLetterModal({
       aria-labelledby="love-letter-heading"
       onClick={onClose}
     >
-      {/* Stationery Love Letter Card */}
+      {/* Birthday Letter Card */}
       <div
         className="relative max-h-[90vh] w-full max-w-[520px] sm:max-w-[560px] rounded-2xl shadow-[0_28px_75px_rgba(15,4,25,0.75),0_10px_25px_rgba(15,4,25,0.45)] border border-[#FFD0E2]/50 overflow-hidden flex flex-col"
         style={{
@@ -53,38 +53,36 @@ export function LoveLetterModal({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="paper-scroll h-full w-full overflow-y-auto flex flex-col px-[14.5%] sm:px-[15%] pt-[8%] pb-[9%]">
-          {/* Header Typography in exact Richford Bold font matching user's reference */}
+          {/* Header Typography */}
           <header className="text-center select-none pt-1 sm:pt-2">
             <h2
               id="love-letter-heading"
               className="font-richford text-4xl sm:text-5xl lg:text-[54px] font-normal text-[#221424] my-1 leading-tight select-none"
             >
-              {letterHeader || 'My love'}
+              {letterHeader || 'Happy Birthday'}
             </h2>
 
-            {/* Couple metadata & title subtitle */}
+            {/* Birthday metadata */}
             <div className="font-revival mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-xs sm:text-[13px] text-[#634E5F]">
-              <span>
-                {partnerA} &amp; {partnerB}
-              </span>
+              <span>🎂 {partnerB}</span>
               <span>·</span>
-              <span>{totalDays.toLocaleString('vi-VN')} ngày</span>
-              {startDate && (
+              <span>🎉 Sinh nhật vui vẻ!</span>
+              {startDate && totalDays > 0 && (
                 <>
                   <span>·</span>
-                  <span>Từ {formatVietnameseDate(startDate)}</span>
+                  <span>📅 {formatVietnameseDate(startDate)}</span>
                 </>
               )}
             </div>
 
             {letterTitle && letterTitle.toLowerCase() !== 'love' && (
               <p className="font-revival mt-2 text-base sm:text-lg text-[#3A2737]">
-                {letterTitle.replace(/^["“'”]+|["“'”]+$/g, '')}
+                {letterTitle.replace(/^[""'"]+|[""'"]+$/g, '')}
               </p>
             )}
           </header>
 
-          {/* Letter Body Paragraphs strictly inside cream area, no overflow onto pink border */}
+          {/* Letter Body Paragraphs */}
           <div
             className="font-revival my-4 sm:my-5 space-y-3.5 sm:space-y-4 text-[#2F2131] text-left pb-4"
             style={{
@@ -96,10 +94,17 @@ export function LoveLetterModal({
               paragraphs.map((text, idx) => <p key={idx}>{text}</p>)
             ) : (
               <p className="font-revival text-[#735C6D] text-center">
-                Bạn có thể viết lời nhắn yêu thương của riêng hai mình trong mục Tùy chỉnh.
+                Bạn có thể viết lời chúc sinh nhật trong mục Tùy chỉnh.
               </p>
             )}
           </div>
+
+          {/* Signature */}
+          {letterSignature && (
+            <div className="font-revival mt-auto text-right text-[#634E5F] italic text-sm pb-2">
+              {letterSignature}
+            </div>
+          )}
         </div>
       </div>
 

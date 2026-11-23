@@ -1,28 +1,24 @@
 import {
-  CalendarHeart,
+  Cake,
   Cat,
   ChevronDown,
   ChevronUp,
   CloudSun,
-  Heart,
-  Mail,
+  PartyPopper,
   Pause,
   Play,
-  SlidersHorizontal,
   Volume2,
   VolumeX,
   Waves,
 } from 'lucide-react';
 import type { ComponentType } from 'react';
-import type { ActivePanel, ShowcaseRealm } from '../types/showcase';
+import type { ShowcaseRealm } from '../types/showcase';
 
 interface BottomControlDockProps {
   collapsed: boolean;
   onToggleCollapse: () => void;
   activeRealm: ShowcaseRealm;
   onSelectRealm: (realm: ShowcaseRealm) => void;
-  activePanel: ActivePanel;
-  onTogglePanel: (panel: ActivePanel) => void;
   onTriggerHeartbeat: () => void;
   musicPlaying: boolean;
   musicLabel: string;
@@ -37,7 +33,7 @@ const REALM_OPTIONS: Array<{
   shortcut: string;
   Icon: ComponentType<{ className?: string; 'aria-hidden'?: boolean }>;
 }> = [
-  { id: 'heart', label: 'Trái tim', shortcut: '1', Icon: Heart },
+  { id: 'heart', label: 'Bánh sinh nhật', shortcut: '1', Icon: Cake },
   { id: 'sky', label: 'Bầu trời', shortcut: '2', Icon: CloudSun },
   { id: 'underwater', label: 'Dưới nước', shortcut: '3', Icon: Waves },
   { id: 'cat-island', label: 'Đảo Mèo', shortcut: '4', Icon: Cat },
@@ -48,8 +44,6 @@ export function BottomControlDock({
   onToggleCollapse,
   activeRealm,
   onSelectRealm,
-  activePanel,
-  onTogglePanel,
   onTriggerHeartbeat,
   musicPlaying,
   musicLabel,
@@ -80,15 +74,15 @@ export function BottomControlDock({
         )}
       </button>
 
-      {/* Unified Horizontal Control Dock (solid/rgba dark plum surface — no backdrop-filter over WebGL) */}
+      {/* Clean, Elegant Horizontal Control Dock */}
       <div
-        className={`pointer-events-auto max-w-[min(1040px,96vw)] overflow-x-auto rounded-2xl border border-[#F8D6E0]/16 bg-[#170F24]/92 px-3 py-2.5 shadow-[0_14px_40px_rgba(8,3,16,0.6)] transition-all duration-200 ease-out ${
+        className={`pointer-events-auto max-w-[min(960px,96vw)] overflow-x-auto rounded-2xl border border-[#F8D6E0]/18 bg-[#170F24]/94 px-3.5 py-2.5 shadow-[0_14px_40px_rgba(8,3,16,0.65)] transition-all duration-200 ease-out ${
           collapsed
             ? 'pointer-events-none translate-y-12 opacity-0 h-0 py-0 border-0 overflow-hidden'
             : 'translate-y-0 opacity-100'
         }`}
       >
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* 4-Realm Photo Showcase Navigator */}
           <div
             className="flex items-center gap-1 rounded-xl bg-[#241736] p-1 shrink-0"
@@ -103,9 +97,9 @@ export function BottomControlDock({
                   type="button"
                   onClick={() => onSelectRealm(id)}
                   title={`${label} (Phím ${shortcut})`}
-                  className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6] ${
+                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6] ${
                     active
-                      ? 'bg-[#F472B6] text-[#170F24]'
+                      ? 'bg-gradient-to-r from-[#F472B6] to-[#EC4899] text-[#170F24] shadow-sm shadow-pink-500/30'
                       : 'text-[#D6BFC8] hover:text-[#FAF3F5]'
                   }`}
                 >
@@ -118,42 +112,14 @@ export function BottomControlDock({
 
           <div className="h-5 w-px bg-[#F8D6E0]/15 shrink-0" aria-hidden="true" />
 
-          {/* Heartbeat & Particle Fireworks Trigger */}
+          {/* Birthday Celebration Fireworks & Chimes Trigger */}
           <button
             type="button"
             onClick={onTriggerHeartbeat}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[#F472B6]/40 bg-[#F472B6]/15 px-3 py-1.5 text-xs font-medium text-[#FAF3F5] transition-colors duration-150 hover:bg-[#F472B6]/28 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-[#F472B6]/45 bg-gradient-to-r from-[#F472B6]/20 to-[#EC4899]/25 px-3.5 py-1.5 text-xs font-semibold text-[#FAF3F5] transition-all duration-150 hover:bg-[#F472B6]/35 hover:scale-105 active:scale-95 whitespace-nowrap shrink-0 shadow-sm shadow-pink-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
           >
-            <Heart className="h-3.5 w-3.5 text-[#F472B6]" aria-hidden="true" />
-            <span>Nhịp tim</span>
-          </button>
-
-          {/* Love Letter Modal Toggle */}
-          <button
-            type="button"
-            onClick={() => onTogglePanel('letter')}
-            className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6] ${
-              activePanel === 'letter'
-                ? 'border-[#F472B6] bg-[#F472B6] text-[#170F24]'
-                : 'border-[#F8D6E0]/14 bg-[#221633] text-[#FAF3F5] hover:border-[#F472B6]/45'
-            }`}
-          >
-            <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Thiệp lời nhắn</span>
-          </button>
-
-          {/* Milestones Drawer Toggle */}
-          <button
-            type="button"
-            onClick={() => onTogglePanel('milestones')}
-            className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6] ${
-              activePanel === 'milestones'
-                ? 'border-[#F472B6] bg-[#F472B6] text-[#170F24]'
-                : 'border-[#F8D6E0]/14 bg-[#221633] text-[#FAF3F5] hover:border-[#F472B6]/45'
-            }`}
-          >
-            <CalendarHeart className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Cột mốc</span>
+            <PartyPopper className="h-4 w-4 text-[#F472B6] animate-bounce" aria-hidden="true" />
+            <span>Chúc mừng! 🎉</span>
           </button>
 
           <div className="h-5 w-px bg-[#F8D6E0]/15 shrink-0" aria-hidden="true" />
@@ -174,8 +140,8 @@ export function BottomControlDock({
             ) : (
               <VolumeX className="h-3.5 w-3.5" aria-hidden="true" />
             )}
-            <span className="max-w-[116px] truncate">
-              {musicPlaying ? musicLabel : 'Bật nhạc'}
+            <span className="max-w-[124px] truncate">
+              {musicPlaying ? musicLabel : 'Bật nhạc 🎵'}
             </span>
           </button>
 
@@ -192,20 +158,6 @@ export function BottomControlDock({
             ) : (
               <Play className="h-3.5 w-3.5" aria-hidden="true" />
             )}
-          </button>
-
-          {/* Customize Studio Drawer Button */}
-          <button
-            type="button"
-            onClick={() => onTogglePanel('editor')}
-            className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6] ${
-              activePanel === 'editor'
-                ? 'border-[#F472B6] bg-[#F472B6] text-[#170F24]'
-                : 'border-[#F8D6E0]/14 bg-[#221633] text-[#FAF3F5] hover:border-[#F472B6]/45'
-            }`}
-          >
-            <SlidersHorizontal className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Tùy chỉnh</span>
           </button>
         </div>
       </div>

@@ -115,18 +115,10 @@ function createPhotoCanvasTexture(
       ctx.clearRect(0, 0, width, height);
       ctx.drawImage(img, sx, sy, sw, sh, 0, 0, width, height);
 
-      const vignette = ctx.createRadialGradient(
-        width / 2,
-        height / 2,
-        width * 0.36,
-        width / 2,
-        height / 2,
-        width * 0.72,
-      );
-      vignette.addColorStop(0, 'rgba(0,0,0,0)');
-      vignette.addColorStop(1, 'rgba(18, 10, 24, 0.2)');
-      ctx.fillStyle = vignette;
-      ctx.fillRect(0, 0, width, height);
+      // Subtle warm rim highlight instead of dark vignette
+      ctx.strokeStyle = 'rgba(255, 245, 240, 0.25)';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(2, 2, width - 4, height - 4);
 
       texture.needsUpdate = true;
     };
@@ -401,22 +393,23 @@ export function createPhotoOrbit(maxAnisotropy: number): PhotoOrbitRig {
       const photoTexture = createPhotoCanvasTexture(memory.imageUrl, memory.title, maxAnisotropy);
       const photoMaterial = new THREE.MeshPhysicalMaterial({
         map: photoTexture,
-        roughness: 0.3,
+        roughness: 0.18,
         metalness: 0.0,
-        clearcoat: 0.42,
-        clearcoatRoughness: 0.16,
+        clearcoat: 0.35,
+        clearcoatRoughness: 0.12,
         emissive: new THREE.Color('#ffffff'),
         emissiveMap: photoTexture,
-        emissiveIntensity: 0.1,
+        emissiveIntensity: 0.65, // Bright, vibrant portrait
       });
       const photoMesh = new THREE.Mesh(photoPlaneGeo, photoMaterial);
       photoMesh.position.z = 0.032;
       group.add(photoMesh);
 
-      const backMesh = new THREE.Mesh(backPlateGeo, backPlateMat);
-      backMesh.position.z = -0.028;
-      backMesh.rotation.y = Math.PI;
-      group.add(backMesh);
+      // Back photo mesh so frames display photo from both front and back
+      const backPhotoMesh = new THREE.Mesh(photoPlaneGeo, photoMaterial);
+      backPhotoMesh.position.z = -0.032;
+      backPhotoMesh.rotation.y = Math.PI;
+      group.add(backPhotoMesh);
 
       const hitPlane = new THREE.Mesh(hitPlaneGeo, hitMat);
       hitPlane.position.z = 0.04;
@@ -503,10 +496,10 @@ export function createPhotoOrbit(maxAnisotropy: number): PhotoOrbitRig {
       const scale = 1 + entry.hoverAmount * 0.07 + entry.activeAmount * 0.1;
       entry.group.scale.setScalar(scale);
 
-      // Slightly higher readable exposure underwater where lighting is softer/deeper
-      const realmBoost = realm === 'underwater' ? 0.12 : 0.0;
+      // High, luminous clarity so portraits of chị Thạch Thảo are always bright and clear
+      const realmBoost = realm === 'underwater' ? 0.15 : 0.0;
       entry.photoMaterial.emissiveIntensity =
-        0.1 + realmBoost + entry.hoverAmount * 0.09 + entry.activeAmount * 0.14;
+        0.65 + realmBoost + entry.hoverAmount * 0.15 + entry.activeAmount * 0.20;
     }
   };
 

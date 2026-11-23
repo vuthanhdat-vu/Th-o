@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, X } from 'lucide-react';
 import type { MemoryItem } from '../types/showcase';
 import { formatVietnameseDate } from '../data/defaults';
 
@@ -29,10 +29,10 @@ export function MemorySpotlightCard({
 
   return (
     <aside
-      aria-label="Chi tiết kỷ niệm"
+      aria-label="Chi tiết ảnh sinh nhật"
       className="fixed right-4 bottom-24 z-25 w-[min(370px,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#F8D6E0]/20 bg-[#191026]/95 shadow-[0_20px_50px_rgba(8,3,16,0.72)] sm:right-7 sm:bottom-24"
     >
-      {/* Photo Preview with Zero-Broken-Image fallback */}
+      {/* Photo Preview */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#261638]">
         {!isBroken && memory.imageUrl ? (
           <img
@@ -44,7 +44,7 @@ export function MemorySpotlightCard({
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#3b1d49] via-[#5c2a4d] to-[#9b4a67] px-6 text-center">
-            <Heart className="h-7 w-7 text-[#F9A8D4]" aria-hidden="true" />
+            <Sparkles className="h-7 w-7 text-[#F9A8D4]" aria-hidden="true" />
             <p className="font-editorial mt-2 text-lg text-[#FAF3F5]">{memory.title}</p>
           </div>
         )}
@@ -54,14 +54,14 @@ export function MemorySpotlightCard({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Đóng thẻ kỷ niệm"
+          aria-label="Đóng thẻ ảnh"
           className="absolute top-3 right-3 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#F8D6E0]/20 bg-[#170F24]/90 text-[#FAF3F5] transition-colors hover:border-[#F472B6] hover:text-[#F472B6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
         >
           <X className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
 
-      {/* Editorial Caption & Romantic Note */}
+      {/* Caption & Birthday Message */}
       <div className="px-5 pt-2 pb-5">
         <div className="flex items-center gap-2 text-xs text-[#D6BFC8]">
           <span className="font-num">
@@ -91,14 +91,14 @@ export function MemorySpotlightCard({
               className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-medium text-[#D6BFC8] transition-colors hover:bg-[#26183A] hover:text-[#FAF3F5] whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
             >
               <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
-              <span>Kỷ niệm trước</span>
+              <span>Ảnh trước</span>
             </button>
             <button
               type="button"
               onClick={() => onSelect(memories[nextIndex].id)}
               className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-medium text-[#D6BFC8] transition-colors hover:bg-[#26183A] hover:text-[#FAF3F5] whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
             >
-              <span>Kỷ niệm sau</span>
+              <span>Ảnh sau</span>
               <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
           </div>

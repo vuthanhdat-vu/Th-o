@@ -1,13 +1,13 @@
 import type { LoveShowcaseData, MemoryItem } from '../types/showcase';
 import { DEFAULT_SHOWCASE_DATA } from '../data/defaults';
 
-const DB_NAME = 'TwilightLoveShowcaseDB';
+const DB_NAME = 'TwilightBirthdayShowcaseDB_v2';
 const DB_VERSION = 1;
 const STORE_PROFILE = 'profile';
 const STORE_AUDIO = 'audio';
 const PROFILE_KEY = 'current';
 const AUDIO_KEY = 'custom-bgm';
-const FALLBACK_LS_KEY = 'twilight_love_showcase_v1';
+const FALLBACK_LS_KEY = 'twilight_birthday_showcase_v2';
 
 function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {

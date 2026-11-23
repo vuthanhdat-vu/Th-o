@@ -1,6 +1,6 @@
-import { X } from 'lucide-react';
+import { X, Cake, Gift } from 'lucide-react';
 import type { MilestoneItem } from '../types/showcase';
-import { calculateDaysTogether, formatVietnameseDate } from '../data/defaults';
+import { formatVietnameseDate } from '../data/defaults';
 
 interface MilestonesDrawerProps {
   open: boolean;
@@ -14,7 +14,6 @@ interface MilestonesDrawerProps {
 
 export function MilestonesDrawer({
   open,
-  partnerA,
   partnerB,
   startDate,
   milestones,
@@ -23,7 +22,6 @@ export function MilestonesDrawer({
 }: MilestonesDrawerProps) {
   if (!open) return null;
 
-  const { totalDays, years, months, days } = calculateDaysTogether(startDate);
   const sorted = [...milestones].sort((a, b) => a.date.localeCompare(b.date));
 
   return (
@@ -42,43 +40,39 @@ export function MilestonesDrawer({
           <div>
             <h2
               id="milestones-heading"
-              className="font-editorial text-2xl font-semibold text-[#FAF3F5]"
+              className="font-editorial text-2xl font-semibold text-[#FAF3F5] flex items-center gap-2"
             >
-              Hành Trình Bên Nhau
+              <Cake className="h-6 w-6 text-[#F472B6]" />
+              Dấu Mốc Sinh Nhật
             </h2>
             <p className="mt-0.5 text-xs text-[#D6BFC8]">
-              {partnerA} &amp; {partnerB} · Từ {formatVietnameseDate(startDate)}
+              🎂 {partnerB} · Sinh nhật {formatVietnameseDate(startDate)}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Đóng bảng cột mốc"
+            aria-label="Đóng bảng dấu mốc"
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#F8D6E0]/16 bg-[#241738] text-[#D6BFC8] transition-colors hover:border-[#F472B6] hover:text-[#FAF3F5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F472B6]"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
 
-        {/* Days Together Counter Summary */}
-        <div className="border-b border-[#F8D6E0]/14 bg-[#201431] px-6 py-5">
-          <p className="text-xs text-[#D6BFC8]">Tổng thời gian bên nhau</p>
-          <p className="font-num mt-1 text-4xl font-medium tracking-tight text-[#FAF3F5]">
-            {totalDays.toLocaleString('vi-VN')}{' '}
-            <span className="font-editorial text-2xl font-normal text-[#F6A68E]">ngày</span>
-          </p>
-          <div className="mt-3 grid grid-cols-3 gap-3 border-t border-[#F8D6E0]/12 pt-3">
-            <div>
-              <p className="font-num text-lg font-medium text-[#FAF3F5]">{years}</p>
-              <p className="text-xs text-[#D6BFC8]">Năm</p>
+        {/* Birthday Celebration Banner */}
+        <div className="border-b border-[#F8D6E0]/14 bg-gradient-to-r from-[#201431] via-[#2D1A42] to-[#201431] px-6 py-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F472B6] to-[#EC4899] shadow-lg shadow-pink-500/25">
+              <Gift className="h-7 w-7 text-white" />
             </div>
             <div>
-              <p className="font-num text-lg font-medium text-[#FAF3F5]">{months}</p>
-              <p className="text-xs text-[#D6BFC8]">Tháng</p>
-            </div>
-            <div>
-              <p className="font-num text-lg font-medium text-[#FAF3F5]">{days}</p>
-              <p className="text-xs text-[#D6BFC8]">Ngày</p>
+              <p className="text-xs text-[#D6BFC8]">Chúc mừng sinh nhật</p>
+              <p className="font-script text-3xl font-medium tracking-tight text-[#FAF3F5]">
+                {partnerB}
+              </p>
+              <p className="text-xs text-[#F6A68E]">
+                🎉 Chúc chị tuổi mới thật nhiều niềm vui!
+              </p>
             </div>
           </div>
         </div>
@@ -87,8 +81,7 @@ export function MilestonesDrawer({
         <div className="twilight-scroll flex-1 overflow-y-auto px-6 py-6">
           {sorted.length === 0 ? (
             <p className="text-sm text-[#D6BFC8]">
-              Chưa có cột mốc kỷ niệm nào. Nhấn nút Chỉnh sửa bên dưới để thêm dấu mốc đầu tiên của
-              hai bạn.
+              Chưa có dấu mốc nào. Nhấn nút Chỉnh sửa bên dưới để thêm dấu mốc đầu tiên.
             </p>
           ) : (
             <ol className="space-y-6">
@@ -122,7 +115,7 @@ export function MilestonesDrawer({
             onClick={onOpenEditor}
             className="w-full rounded-xl bg-[#F472B6] px-4 py-2.5 text-xs font-semibold text-[#170F24] transition-colors hover:bg-[#F9A8D4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAF3F5]"
           >
-            Chỉnh sửa ngày yêu &amp; cột mốc
+            ✏️ Chỉnh sửa dấu mốc sinh nhật
           </button>
         </div>
       </aside>

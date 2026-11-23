@@ -39,7 +39,7 @@ export const REALM_ANCHORS: Record<
     center: [0, 0.2, 0],
     cameraPos: [0, 1.35, 9.2],
     cameraTarget: [0, 0.15, 0],
-    label: 'Trái tim hoàng hôn',
+    label: 'Bánh kem sinh nhật',
   },
   sky: {
     center: [0, 11.4, -10.5],

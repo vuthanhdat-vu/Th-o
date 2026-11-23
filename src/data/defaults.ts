@@ -1,216 +1,222 @@
 import type { LoveShowcaseData, MemoryItem, ShowcaseRealm } from '../types/showcase';
 
+// Đường dẫn ảnh của chị Thạch Thảo
+const IMG = '/assets/images';
+const img = (name: string) => `${IMG}/${name}`;
+
 export const REALM_MEMORIES: Record<ShowcaseRealm, MemoryItem[]> = {
   heart: [
     {
       id: 'mem-heart-1',
-      title: 'Buổi Chiều Ven Biển Đầu Tiên',
-      date: '2024-10-12',
+      title: 'Nụ Cười Rạng Rỡ Nhất',
+      date: '2026-11-23',
       message:
-        'Bầu trời hôm ấy nhuộm sắc hồng tím thật khẽ. Chỉ cần nắm tay em đi dọc cây cầu gỗ nhỏ, mọi ồn ào ngoài kia bỗng hóa thành bình yên.',
-      imageUrl: '/src/assets/images/memory_first_sunset_1795260876519.jpg',
+        'Chị luôn mang đến niềm vui cho mọi người bằng nụ cười ấm áp và chân thành nhất. Sinh nhật vui vẻ chị Thạch Thảo! 🎂',
+      imageUrl: img('1795440826714_255325728555809316_5800590543145803216_1c2bbf2039a005f9e523c2666c0ea381.jpg'),
     },
     {
       id: 'mem-heart-2',
-      title: 'Ánh Đèn Nhỏ Trên Sân Thượng',
-      date: '2024-12-24',
+      title: 'Khoảnh Khắc Đáng Nhớ',
+      date: '2026-11-23',
       message:
-        'Giữa hàng ngàn ánh đèn thành phố lúc chạng vạng, điều sáng nhất trong mắt anh vẫn là nụ cười của em khi tựa vai nhau đón gió.',
-      imageUrl: '/src/assets/images/memory_lantern_evening_1795260854146.jpg',
+        'Mỗi khoảnh khắc bên chị đều đáng được lưu giữ, vì chị là người luôn biết cách biến mọi thứ trở nên đặc biệt.',
+      imageUrl: img('1795440826743_255325728555809316_5800590543145803216_c6719ed289b4551b83e1fba8573a0f26.jpg'),
     },
     {
       id: 'mem-heart-3',
-      title: 'Góc Quán Quen Ngày Mưa Nhẹ',
-      date: '2025-02-14',
+      title: 'Chị Là Ánh Sáng Của Gia Đình',
+      date: '2026-11-23',
       message:
-        'Ngoài khung kính là cơn mưa bụi chiều tím, còn bên trong là hai tách cà phê ấm và hơi ấm từ bàn tay em đan chặt vào tay anh.',
-      imageUrl: '/src/assets/images/memory_coffee_rain_1795260851662.jpg',
+        'Với gia đình, chị luôn là ngọn đèn soi sáng, là chỗ dựa vững chắc và là nguồn cảm hứng bất tận.',
+      imageUrl: img('1795440826762_255325728555809316_5800590543145803216_8d905977f55c2db89d3e9f0b3941965d.jpg'),
     },
     {
       id: 'mem-heart-4',
-      title: 'Cái Ôm Giữa Đồi Hoa Oải Hương',
-      date: '2025-05-03',
+      title: 'Xinh Đẹp & Tự Tin',
+      date: '2026-11-23',
       message:
-        'Nắng cuối ngày rọi vàng lên mái tóc em bay trong gió. Anh ước thời gian có thể chậm lại thật lâu ngay trong vòng tay ấy.',
-      imageUrl: '/src/assets/images/memory_meadow_embrace_1795260846757.jpg',
+        'Chị Thạch Thảo ơi, chị đẹp lắm! Chúc chị luôn tự tin tỏa sáng như vì sao đẹp nhất trên bầu trời. ✨',
+      imageUrl: img('1795440826780_255325728555809316_5800590543145803216_1d0331e38583c730743e147d4a772063.jpg'),
     },
     {
       id: 'mem-heart-5',
-      title: 'Đếm Những Ngôi Sao Đầu Hôm',
-      date: '2025-09-19',
+      title: 'Happy Birthday Chị Yêu! 🎉',
+      date: '2026-11-23',
       message:
-        'Khi ánh hồng hoàng hôn vừa kịp nhường chỗ cho bầu trời sao, ta cùng ước thật nhiều chuyến đi nữa vẫn luôn có nhau đồng hành.',
-      imageUrl: '/src/assets/images/memory_stargazing_hill_1795260878550.jpg',
+        'Chúc chị một ngày sinh nhật thật ý nghĩa, tràn đầy tiếng cười và hạnh phúc. Em yêu chị nhiều lắm! 💕',
+      imageUrl: img('1795440826794_255325728555809316_5800590543145803216_bb1f8a56723356ec598f07b543cb960d.jpg'),
     },
   ],
   sky: [
     {
       id: 'mem-sky-1',
-      title: 'Chạm Tay Vào Mây Hoàng Hôn',
-      date: '2024-11-05',
+      title: 'Bay Cao Với Ước Mơ',
+      date: '2026-11-23',
       message:
-        'Ở độ cao lộng gió giữa tầng mây bồng bềnh, anh cảm nhận được sự tự do và tình yêu ngọt ngào nâng cánh đôi mình bay cao.',
-      imageUrl: '/assets/memories/memory_sky_1.jpg',
+        'Chúc chị luôn bay cao với những ước mơ của mình, không gì có thể ngăn cản một người tuyệt vời như chị!',
+      imageUrl: img('1795440826809_255325728555809316_5800590543145803216_778805b5fd30e7b68fcec915b393bbf6.jpg'),
     },
     {
       id: 'mem-sky-2',
-      title: 'Cánh Diều Đón Gió Chiều Tím',
-      date: '2025-01-18',
+      title: 'Tỏa Sáng Rực Rỡ',
+      date: '2026-11-23',
       message:
-        'Thả những ước mơ lên bầu trời chiều lộng gió, nụ cười của em trong trẻo và rạng rỡ tựa ánh tà dương.',
-      imageUrl: '/assets/memories/memory_sky_2.jpg',
+        'Giống như ánh hoàng hôn rực rỡ, chị luôn tỏa sáng bằng sự ấm áp và lòng nhân ái của mình.',
+      imageUrl: img('1795440826822_255325728555809316_5800590543145803216_d042f22d860ccb5a6345d107c2e90236.jpg'),
     },
     {
       id: 'mem-sky-3',
-      title: 'Ngắm Thành Phố Từ Đỉnh Đồi',
-      date: '2025-03-22',
+      title: 'Kỷ Niệm Tuyệt Đẹp',
+      date: '2026-11-23',
       message:
-        'Khi phố thị dần lên đèn dưới chân đồi, ánh nhìn của em chính là ngọn hải đăng bình yên nhất dẫn lối anh về.',
-      imageUrl: '/assets/memories/memory_sky_3.jpg',
+        'Những khoảnh khắc bên chị đẹp như bầu trời chiều tím, lung linh và đầy màu sắc.',
+      imageUrl: img('1795440826835_255325728555809316_5800590543145803216_f7b636d10c996e02246825c0e61f3677.jpg'),
     },
     {
       id: 'mem-sky-4',
-      title: 'Tựa Vai Dưới Bầu Trời Tím',
-      date: '2025-06-15',
+      title: 'Chị Thạch Thảo Xinh Xắn',
+      date: '2026-11-23',
       message:
-        'Bầu trời chuyển dần sang sắc tím oải hương dịu dàng. Chỉ cần tựa vai em, cả vũ trụ dường như ngừng trôi.',
-      imageUrl: '/assets/memories/memory_sky_4.jpg',
+        'Mỗi bức ảnh đều lưu giữ vẻ đẹp đặc biệt của chị — nụ cười tỏa nắng, ánh mắt lung linh.',
+      imageUrl: img('1795440826846_255325728555809316_5800590543145803216_5666fcf7b9e790c629a8d54b24eec850.jpg'),
     },
     {
       id: 'mem-sky-5',
-      title: 'Nguyện Ước Dưới Mưa Sao Băng',
-      date: '2025-08-12',
+      title: 'Lời Chúc Từ Bầu Trời',
+      date: '2026-11-23',
       message:
-        'Những vệt sao băng ánh xanh tím vụt qua nền trời, và điều ước duy nhất của anh luôn là được nắm tay em suốt cuộc đời.',
-      imageUrl: '/assets/memories/memory_sky_5.jpg',
+        'Nếu có thể gửi lời chúc qua bầu trời, em sẽ viết: "Happy Birthday chị Thạch Thảo!" bằng những vì sao. 🌟',
+      imageUrl: img('1795440826857_255325728555809316_5800590543145803216_480eef4b0dadca245fae5be951fadcdb.jpg'),
     },
   ],
   underwater: [
     {
       id: 'mem-water-1',
-      title: 'Lặn Ngắm Rạn San Hô Đôi',
-      date: '2024-11-20',
+      title: 'Vẻ Đẹp Tựa Đại Dương',
+      date: '2026-11-23',
       message:
-        'Cùng em lặn sâu xuống làn nước ngọc bích, chiêm ngưỡng thế giới rạn san hô lộng lẫy và những đàn cá nhiệt đới tung tăng.',
-      imageUrl: '/assets/memories/memory_sea_1.jpg',
+        'Tâm hồn chị sâu rộng và đẹp đẽ như đại dương, luôn bao dung và yêu thương mọi người xung quanh.',
+      imageUrl: img('1795440826867_255325728555809316_5800590543145803216_05555569d1324e238ef15fc9115ac101.jpg'),
     },
     {
       id: 'mem-water-2',
-      title: 'Dạo Bước Chân Trần Ven Sóng',
-      date: '2025-02-28',
+      title: 'Lấp Lánh Dưới Ánh Sáng',
+      date: '2026-11-23',
       message:
-        'Sóng biển vỗ về bờ cát êm ái, bọt nước mát lạnh ôm lấy từng bước chân đôi mình trong ánh tà dương lấp lánh.',
-      imageUrl: '/assets/memories/memory_sea_2.jpg',
+        'Chị luôn tỏa ra ánh sáng riêng, lấp lánh và rạng ngời dù ở bất cứ đâu, giống như ánh nắng xuyên qua mặt nước.',
+      imageUrl: img('1795440826877_255325728555809316_5800590543145803216_798442bc39d64221d8d47eb7c8759607.jpg'),
     },
     {
       id: 'mem-water-3',
-      title: 'Ánh Dương Qua Làn Nước Biếc',
-      date: '2025-04-16',
+      title: 'Chúc Chị Mãi Hạnh Phúc',
+      date: '2026-11-23',
       message:
-        'Từng luồng sáng mặt trời chiếu xuyên qua mặt nước xanh biếc như những dải lụa phát sáng kỳ ảo của biển sâu.',
-      imageUrl: '/assets/memories/memory_sea_3.jpg',
+        'Em chúc chị luôn được bao quanh bởi yêu thương, hạnh phúc và những điều tốt đẹp nhất! 💎',
+      imageUrl: img('1795440826887_255325728555809316_5800590543145803216_19c30b3917b42fcd18a5039592657006.jpg'),
     },
     {
       id: 'mem-water-4',
-      title: 'Chiếc Vỏ Ốc Kỷ Niệm Của Biển',
-      date: '2025-07-08',
+      title: 'Mãi Xinh Đẹp',
+      date: '2026-11-23',
       message:
-        'Em nhặt tặng anh chiếc vỏ ốc trắng ngà, bảo rằng áp tai vào sẽ nghe thấy lời thầm thì của đại dương và tình yêu.',
-      imageUrl: '/assets/memories/memory_sea_4.jpg',
+        'Chúc chị Thạch Thảo mãi mãi xinh đẹp, trẻ trung và rạng rỡ. Chị xứng đáng được yêu thương nhiều nhất!',
+      imageUrl: img('1795440826897_255325728555809316_5800590543145803216_b8e8a285a668d016005b9c68aa1b6b9a.jpg'),
     },
     {
       id: 'mem-water-5',
-      title: 'Đại Dương Yên Bình Bên Em',
-      date: '2025-10-02',
+      title: 'Biển Yêu Thương Dành Cho Chị',
+      date: '2026-11-23',
       message:
-        'Ngồi bên mạn thuyền nhìn chân trời biển rộng mênh mông, anh nhận ra biển có sâu đến đâu cũng không bằng tình cảm này.',
-      imageUrl: '/assets/memories/memory_sea_5.jpg',
+        'Tình yêu gia đình dành cho chị sâu rộng như đại dương, không bao giờ cạn và luôn ấm áp.',
+      imageUrl: img('1795440826907_255325728555809316_5800590543145803216_9979f2f722219deb26707b1fddcc8719.jpg'),
     },
   ],
   'cat-island': [
     {
       id: 'mem-cat-1',
-      title: 'Chú Mèo Cam Dưới Gốc Cọ',
-      date: '2024-12-05',
+      title: 'Đáng Yêu Như Mèo Con 🐱',
+      date: '2026-11-23',
       message:
-        'Vừa đặt chân lên đảo, chú mèo lông cam mũm mĩm đã chạy ra đón đường, quấn quýt bên chân em đòi vuốt ve.',
-      imageUrl: '/assets/memories/memory_cat_1.jpg',
+        'Chị dễ thương lắm, đáng yêu không kém gì những chú mèo xinh xắn trên đảo mèo đâu nha!',
+      imageUrl: img('1795440826917_255325728555809316_5800590543145803216_4a8fec60c64583d3e11ebedfbb8c8b48.jpg'),
     },
     {
       id: 'mem-cat-2',
-      title: 'Giấc Ngủ Trưa Trên Bãi Cỏ',
-      date: '2025-03-08',
+      title: 'Nụ Cười Ngọt Ngào',
+      date: '2026-11-23',
       message:
-        'Gió biển thổi nhẹ qua đồi cỏ xanh, những chú mèo cuộn tròn ngủ say dưới nắng ấm thanh bình.',
-      imageUrl: '/assets/memories/memory_cat_2.jpg',
+        'Nụ cười của chị ấm áp hơn cả ánh nắng chiều trên hòn đảo bình yên nhất.',
+      imageUrl: img('1795440826927_255325728555809316_5800590543145803216_07387a360ae87b40ccfc41ca31ef17ca.jpg'),
     },
     {
       id: 'mem-cat-3',
-      title: 'Cùng Em Vuốt Ve Những Chú Mèo',
-      date: '2025-05-20',
+      title: 'Phong Cách Riêng Của Chị',
+      date: '2026-11-23',
       message:
-        'Ánh mắt em lấp lánh niềm vui khi đàn mèo vây quanh, khoảnh khắc ấy đáng yêu và ngọt ngào hơn bất cứ điều gì.',
-      imageUrl: '/assets/memories/memory_cat_3.jpg',
+        'Chị luôn có phong cách riêng thật ấn tượng và cuốn hút, khiến ai cũng phải ngưỡng mộ.',
+      imageUrl: img('1795440826937_255325728555809316_5800590543145803216_dccb5e758a602a4e7c43d6d4286ba936.jpg'),
     },
     {
       id: 'mem-cat-4',
-      title: 'Ánh Đèn Chiều Trên Cầu Gỗ',
-      date: '2025-08-30',
+      title: 'Tuổi Mới Thêm Rạng Ngời',
+      date: '2026-11-23',
       message:
-        'Khi hoàng hôn buông xuống, những ngọn đèn lồng ấm áp trên cầu cảng thắp sáng con đường đôi mình dạo chơi cùng mèo.',
-      imageUrl: '/assets/memories/memory_cat_4.jpg',
+        'Mỗi tuổi mới là một trang sách mới đầy phiêu lưu. Chúc chị viết nên những câu chuyện tuyệt vời nhất! 📖',
+      imageUrl: img('1795440826948_255325728555809316_5800590543145803216_00c98a063f29c7ba9f91cdc69daf5311.jpg'),
     },
     {
       id: 'mem-cat-5',
-      title: 'Hoàng Hôn Nhuộm Vàng Đảo Mèo',
-      date: '2025-10-18',
+      title: 'Chị Là Báu Vật Của Em',
+      date: '2026-11-23',
       message:
-        'Ngồi bên em ngắm mặt trời lặn từ mỏm đá đảo mèo, tiếng sóng và tiếng mèo kêu êm đềm như một bản tình ca.',
-      imageUrl: '/assets/memories/memory_cat_5.jpg',
+        'Cảm ơn chị vì luôn ở bên cạnh em. Chị không chỉ là chị gái, mà còn là người bạn thân nhất của em. Yêu chị! 💖',
+      imageUrl: img('1795440826957_255325728555809316_5800590543145803216_04f6452a3bdff609b5b9c9ef570a1a35.jpg'),
     },
   ],
 };
 
 export const DEFAULT_SHOWCASE_DATA: LoveShowcaseData = {
-  partnerA: 'Minh Đức',
-  partnerB: 'Thảo Vy',
-  headline: 'Hoàng Hôn Của Đôi Mình',
-  startDate: '2024-09-19',
-  letterHeader: 'My love',
-  letterTitle: 'Gửi người thương trong ánh chiều hồng tím,',
-  letterBody: `Nếu có thể giữ lại một khoảnh khắc đẹp nhất của cả bầu trời, anh sẽ chọn giây phút hoàng hôn buông xuống khi đôi mình nắm tay nhau đi qua những con phố nhỏ.
+  partnerA: 'Em',
+  partnerB: 'Nguyễn Thạch Thảo',
+  headline: '🎂 Happy Birthday Chị Thạch Thảo 🎂',
+  startDate: '2026-11-23',
+  letterHeader: 'Happy Birthday',
+  letterTitle: 'Gửi chị Thạch Thảo yêu quý nhất,',
+  letterBody: `Hôm nay là ngày đặc biệt nhất — ngày sinh nhật của chị yêu! Em muốn dành trang này để nói với chị rằng: Cảm ơn chị vì luôn là người tuyệt vời nhất!
 
-Cảm ơn em vì đã bước vào thế giới của anh bằng nụ cười dịu dàng nhất, biến những ngày bình thường trở thành những kỷ niệm lấp lánh mà anh luôn muốn nâng niu. Mỗi khung ảnh đang xoay quanh trái tim này là một mảnh ghép nhỏ của chúng mình — những buổi chiều gió nhẹ, những tách cà phê ngày mưa, và cả những lúc chỉ cần lặng yên ngắm bầu trời chuyển sắc bên nhau.
+Chị là người luôn mạnh mẽ, dịu dàng và đầy yêu thương. Chị luôn biết cách khiến mọi người xung quanh cảm thấy được quan tâm và trân trọng. Với em, chị không chỉ là chị gái — chị là người bạn thân, là chỗ dựa, là nguồn cảm hứng vô tận.
 
-Mong rằng dù thêm bao nhiêu mùa hoàng hôn nữa đi qua, nhịp đập này vẫn luôn hướng về em, dịu dàng và trọn vẹn như ngày đầu tiên.`,
-  letterSignature: 'Mãi thương em, của riêng em.',
+Mỗi khung ảnh đang xoay quanh đây là một lời chúc em gửi đến chị — chúc chị luôn xinh đẹp, luôn hạnh phúc, luôn tỏa sáng rực rỡ như ánh hoàng hôn tím hồng. Chúc chị tuổi mới thêm nhiều niềm vui, thêm nhiều thành công, và mãi mãi rạng ngời!
+
+Em yêu chị nhiều lắm! Happy Birthday chị Thạch Thảo! 🎉🎂💕`,
+  letterSignature: 'Yêu chị mãi mãi, em của chị. 💖',
   letterFontSize: 15,
   memories: REALM_MEMORIES.heart,
   realmMemories: structuredClone(REALM_MEMORIES),
   milestones: [
     {
       id: 'ms-1',
-      date: '2024-09-19',
-      title: 'Ngày Bắt Đầu Câu Chuyện',
-      description: 'Lời tỏ tình dưới ánh hoàng hôn và cái gật đầu khiến cả bầu trời như bừng sáng.',
+      date: '2026-11-23',
+      title: '🎂 Ngày Sinh Nhật Chị Thạch Thảo',
+      description: 'Ngày đặc biệt nhất trong năm — ngày chị yêu tràn ngập tiếng cười và lời chúc tốt đẹp!',
     },
     {
       id: 'ms-2',
-      date: '2024-12-24',
-      title: 'Mùa Giáng Sinh Đầu Tiên Bên Nhau',
-      description: 'Cùng nghe nhạc dưới dây đèn vàng trên sân thượng và trao nhau những điều ước năm mới.',
+      date: '2026-11-23',
+      title: '🎁 Thổi Nến & Ước Nguyện',
+      description: 'Chị hãy nhắm mắt, ước một điều thật đẹp rồi thổi tắt nến nhé! Chúc mọi điều ước của chị đều thành hiện thực.',
     },
     {
       id: 'ms-3',
-      date: '2025-05-03',
-      title: 'Chuyến Đi Xa Đầu Tiên',
-      description: 'Chạy trốn thành phố ồn ào để đón hoàng hôn tím trên triền đồi đầy hoa và gió mát.',
+      date: '2026-11-23',
+      title: '📸 Kỷ Niệm Đẹp Nhất',
+      description: 'Lưu giữ những khoảnh khắc tuyệt vời nhất trong ngày sinh nhật chị — những nụ cười, những cái ôm, và tình yêu thương.',
     },
     {
       id: 'ms-4',
-      date: '2025-09-19',
-      title: 'Tròn Một Năm Đồng Hành',
-      description: '365 ngày dịu dàng trôi qua, tình yêu không cũ đi mà càng thêm sâu lắng và ấm áp.',
+      date: '2026-11-23',
+      title: '💫 Tuổi Mới, Hành Trình Mới',
+      description: 'Chúc chị bước sang tuổi mới với thật nhiều may mắn, sức khỏe và hạnh phúc. Chị xứng đáng với những điều tốt đẹp nhất!',
     },
   ],
   music: {

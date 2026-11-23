@@ -39,9 +39,9 @@ interface CustomizeDrawerProps {
 }
 
 const TABS: Array<{ id: EditorTab; label: string }> = [
-  { id: 'profile', label: 'Tên & Thư' },
+  { id: 'profile', label: 'Lời chúc' },
   { id: 'photos', label: 'Ảnh 3D' },
-  { id: 'milestones', label: 'Cột mốc' },
+  { id: 'milestones', label: 'Dấu mốc' },
   { id: 'music', label: 'Nhạc nền' },
 ];
 
@@ -395,7 +395,7 @@ export function CustomizeDrawer({
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <label className="block">
-                  <span className="text-xs font-medium text-[#D6BFC8]">Tên bạn</span>
+                  <span className="text-xs font-medium text-[#D6BFC8]">Người gửi</span>
                   <input
                     type="text"
                     value={data.partnerA}
@@ -407,7 +407,7 @@ export function CustomizeDrawer({
                   />
                 </label>
                 <label className="block">
-                  <span className="text-xs font-medium text-[#D6BFC8]">Tên người thương</span>
+                  <span className="text-xs font-medium text-[#D6BFC8]">Người nhận (chị)</span>
                   <input
                     type="text"
                     value={data.partnerB}
